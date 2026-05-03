@@ -19,7 +19,6 @@
 
   <style>
     :root {
-      /* Marginr — Charcoal Ice Palette */
       --bg-depth: #0F1217;
       --bg-surface: #171C23;
       --bg-card: #1F2630;
@@ -44,9 +43,15 @@
       --max-width: 1200px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: "Suisse Intl", -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -74,8 +79,15 @@
       filter: blur(8px);
     }
 
-    a { text-decoration: none; color: inherit; transition: 0.2s; }
-    ul { list-style: none; }
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: 0.2s;
+    }
+
+    ul {
+      list-style: none;
+    }
 
     .sr-only {
       position: absolute;
@@ -152,6 +164,11 @@
       color: var(--text-main);
     }
 
+    .logo:hover {
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
     .brand-mark {
       width: 38.4px;
       height: 38.4px;
@@ -191,7 +208,9 @@
       color: var(--text-muted);
     }
 
-    .nav-links a:hover { color: var(--text-main); }
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
 
     .btn {
       padding: 10px 20px;
@@ -303,7 +322,10 @@
       line-height: 1.4;
     }
 
-    .hero-proof strong { color: var(--text-main); font-weight: 700; }
+    .hero-proof strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
 
     .dashboard-card {
       background:
@@ -404,7 +426,10 @@
       box-shadow: 0 -8px 24px rgba(125, 188, 227, 0.08);
     }
 
-    @keyframes grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+    @keyframes grow {
+      from { transform: scaleY(0); }
+      to { transform: scaleY(1); }
+    }
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
@@ -455,20 +480,6 @@
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
     }
 
-    .cta-box {
-      background:
-        radial-gradient(circle at center top, rgba(125, 188, 227, 0.14), transparent 42%),
-        linear-gradient(180deg, rgba(31, 38, 48, 0.86), rgba(23, 28, 35, 0.95));
-      border: 1px solid rgba(168, 214, 242, 0.14);
-      border-radius: var(--radius-lg);
-      padding: 80px 24px;
-      text-align: center;
-      box-shadow: 0 24px 70px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.035);
-    }
-
-
-
-    /* Refined subsection system: cleaner rhythm, stronger hierarchy, fewer words */
     section {
       padding: 180px 0;
       position: relative;
@@ -481,7 +492,9 @@
       align-items: center;
     }
 
-    .section-flow > .container { width: 100%; }
+    .section-flow > .container {
+      width: 100%;
+    }
 
     .section-flow::before {
       content: '';
@@ -542,7 +555,9 @@
       max-width: 620px;
     }
 
-    .section-header.centered p { margin: 0 auto; }
+    .section-header.centered p {
+      margin: 0 auto;
+    }
 
     .process-grid {
       display: grid;
@@ -556,8 +571,7 @@
     .rule-card,
     .beta-item,
     .quote-card {
-      background:
-        linear-gradient(180deg, rgba(31, 38, 48, 0.76), rgba(23, 28, 35, 0.88));
+      background: linear-gradient(180deg, rgba(31, 38, 48, 0.76), rgba(23, 28, 35, 0.88));
       border: 1px solid var(--border);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
     }
@@ -635,7 +649,10 @@
       line-height: 1.6;
     }
 
-    .quiet-note strong { color: var(--text-main); font-weight: 650; }
+    .quiet-note strong {
+      color: var(--text-main);
+      font-weight: 650;
+    }
 
     .split-panel {
       display: grid;
@@ -898,7 +915,9 @@
       align-items: center;
     }
 
-    .rule-card h3 span { color: var(--accent-secondary); }
+    .rule-card h3 span {
+      color: var(--accent-secondary);
+    }
 
     .timeline-wrapper {
       max-width: 760px;
@@ -931,7 +950,9 @@
       transform: translateY(0);
     }
 
-    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
 
     .timeline-marker {
       position: relative;
@@ -1060,8 +1081,6 @@
       white-space: nowrap;
     }
 
-
-
     .qa-section {
       min-height: auto;
       padding-top: 140px;
@@ -1092,7 +1111,9 @@
       letter-spacing: -0.03em;
     }
 
-    .qa-item summary::-webkit-details-marker { display: none; }
+    .qa-item summary::-webkit-details-marker {
+      display: none;
+    }
 
     .qa-item summary::after {
       content: "⌄";
@@ -1116,7 +1137,21 @@
       line-height: 1.7;
     }
 
-    .qa-item strong { color: var(--text-main); font-weight: 650; }
+    .qa-item strong {
+      color: var(--text-main);
+      font-weight: 650;
+    }
+
+    .cta-box {
+      background:
+        radial-gradient(circle at center top, rgba(125, 188, 227, 0.14), transparent 42%),
+        linear-gradient(180deg, rgba(31, 38, 48, 0.86), rgba(23, 28, 35, 0.95));
+      border: 1px solid rgba(168, 214, 242, 0.14);
+      border-radius: var(--radius-lg);
+      padding: 80px 24px;
+      text-align: center;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.035);
+    }
 
     .form-status,
     .ml-form-successContent p {
@@ -1126,7 +1161,6 @@
       min-height: 1.2em;
     }
 
-    /* MailerLite form: use MailerLite's endpoint, but keep Marginr's styling. */
     #mlb2-40749345.ml-form-embedContainer,
     #mlb2-40749345 .ml-form-align-center,
     #mlb2-40749345 .ml-form-embedWrapper,
@@ -1216,23 +1250,37 @@
     }
 
     footer {
-      padding: 36px 0 max(36px, env(safe-area-inset-bottom));
+      padding: 34px 0 max(34px, env(safe-area-inset-bottom));
       border-top: 1px solid var(--border);
       color: var(--text-muted);
       font-size: 0.85rem;
-      text-align: center;
     }
 
-    footer .container {
+    .footer-inner {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      gap: 24px;
       min-height: 24px;
     }
 
-    footer p {
-      width: 100%;
+    .footer-copy {
       margin: 0;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--text-main);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1251,7 +1299,9 @@
     }
 
     @media (max-width: 1100px) {
-      .alert-float { right: 0; }
+      .alert-float {
+        right: 0;
+      }
     }
 
     @media (max-width: 980px) {
@@ -1263,30 +1313,103 @@
         grid-template-columns: 1fr;
       }
 
-      .process-card { min-height: auto; }
-      .quote-card { align-items: flex-start; flex-direction: column; }
-      .quote-copy { max-width: 100%; }
+      .process-card {
+        min-height: auto;
+      }
+
+      .quote-card {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .quote-copy {
+        max-width: 100%;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
     }
 
     @media (max-width: 768px) {
-      section { padding: 110px 0; }
-      .container { padding: 0 20px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 50px; }
-      .hero { padding-top: 60px; min-height: auto; }
-      .nav-links { display: none; }
-      .dashboard-card { margin-top: 20px; transform: none; }
-      .dashboard-card:hover { transform: none; }
-      .alert-float { right: 0; top: -20px; position: relative; margin: 0 auto; }
-      h1 { font-size: 2.2rem; }
-      .hero-proof { align-items: flex-start; border-radius: 18px; }
-      .chart-months { gap: 10px; }
-      .stat-item div { font-size: 1.12rem; }
-      .dash-header { gap: 16px; }
+      section {
+        padding: 110px 0;
+      }
+
+      .container {
+        padding: 0 20px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .hero {
+        padding-top: 60px;
+        min-height: auto;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .dashboard-card {
+        margin-top: 20px;
+        transform: none;
+      }
+
+      .dashboard-card:hover {
+        transform: none;
+      }
+
+      .alert-float {
+        right: 0;
+        top: -20px;
+        position: relative;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-proof {
+        align-items: flex-start;
+        border-radius: 18px;
+      }
+
+      .chart-months {
+        gap: 10px;
+      }
+
+      .stat-item div {
+        font-size: 1.12rem;
+      }
+
+      .dash-header {
+        gap: 16px;
+      }
+
       .process-grid,
       .quality-points,
-      .beta-grid { grid-template-columns: 1fr; }
-      .pain-panel { padding: 26px; }
-      .pain-row:hover { transform: translateY(-2px); }
+      .beta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pain-panel {
+        padding: 26px;
+      }
+
+      .pain-row:hover {
+        transform: translateY(-2px);
+      }
+
       .neural-network {
         inset: auto;
         top: 0;
@@ -1298,14 +1421,31 @@
         transform: translateX(-50%);
         transform-origin: center center;
       }
-      .timeline-item { gap: 20px; }
-      .qa-item summary { font-size: 1.08rem; }
-      .cta-box form { flex-direction: column; }
-      .cta-box form .btn { width: 100%; }
-      #mlb2-40749345 .ml-block-form { flex-direction: column; }
+
+      .timeline-item {
+        gap: 20px;
+      }
+
+      .qa-item summary {
+        font-size: 1.08rem;
+      }
+
+      .cta-box form {
+        flex-direction: column;
+      }
+
+      .cta-box form .btn {
+        width: 100%;
+      }
+
+      #mlb2-40749345 .ml-block-form {
+        flex-direction: column;
+      }
+
       #mlb2-40749345 .ml-form-embedSubmit,
-      #mlb2-40749345 .ml-form-embedSubmit button { width: 100%; }
-      footer .container { flex-direction: column; gap: 14px; }
+      #mlb2-40749345 .ml-form-embedSubmit button {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -1315,7 +1455,7 @@
 
   <header>
     <div class="container nav-inner">
-      <div class="logo">
+      <a href="/" class="logo" aria-label="Go to Marginr homepage">
         <span class="brand-mark">
           <svg viewBox="0 0 100 100" role="img" aria-labelledby="marginr-logo-title marginr-logo-desc" shape-rendering="geometricPrecision">
             <title id="marginr-logo-title">Marginr logo</title>
@@ -1333,9 +1473,9 @@
           </svg>
         </span>
         Marginr
-      </div>
+      </a>
 
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Primary navigation">
         <a href="#how">How it works</a>
         <a href="#manifesto">No quality cuts</a>
         <a href="#timeline">Roadmap</a>
@@ -1357,7 +1497,10 @@
           <p class="hero-sub">
             Your biggest margin leak probably isn’t obvious. It’s buried in supplier invoices, price creep, and overpayments you’re too busy to audit. We turn that into profit, without compromising quality.
           </p>
-          <div class="hero-proof"><span>📈</span><span>Even a small <strong>$240/mo</strong> leak becomes <strong>$2,880/yr</strong> back into the practice.</span></div>
+          <div class="hero-proof">
+            <span>📈</span>
+            <span>Even a small <strong>$240/mo</strong> leak becomes <strong>$2,880/yr</strong> back into the practice.</span>
+          </div>
           <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
             <a href="#waitlist" class="btn btn-primary">Apply for Founding Access</a>
             <a href="#how" class="btn btn-outline">See how it works</a>
@@ -1482,6 +1625,7 @@
               <circle class="neural-node" cx="88" cy="236" r="4" />
             </g>
           </svg>
+
           <div class="panel-copy">
             <span class="eyebrow">Built for dentist-owners</span>
             <h2>The pain is not accounting. It is attention.</h2>
@@ -1670,6 +1814,7 @@
           <p style="color: var(--text-muted); max-width: 560px; margin: 0 auto 32px;">
             Get early access to Marginr and help shape a passive AI assistant that turns dental invoices into margin opportunities—without quality cuts or finance busywork.
           </p>
+
           <div id="mlb2-40749345" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-40749345">
             <div class="ml-form-align-center">
               <div class="ml-form-embedWrapper embedForm">
@@ -1712,6 +1857,7 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -1747,12 +1893,16 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <footer>
-    <div class="container">
-      <p>&copy; 2025 Marginr AI. Built for independent dental practices.</p>
+    <div class="container footer-inner">
+      <p class="footer-copy">&copy; 2026 Marginr. Built for independent dental practices.</p>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Use</a>
+      </nav>
     </div>
   </footer>
 
@@ -1773,6 +1923,7 @@
     document.querySelectorAll('.timeline-item, .reveal-on-scroll, .scale-in-scroll').forEach(item => {
       observer.observe(item);
     });
+
     function ml_webform_success_40749345() {
       var $ = window.ml_jQuery || window.jQuery;
       if ($) {
@@ -1787,6 +1938,7 @@
       if (successRow) successRow.style.display = 'block';
     }
   </script>
+
   <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b" type="text/javascript"></script>
   <script>
     fetch("https://assets.mailerlite.com/jsonp/2312801/forms/186452911636612681/takel");
