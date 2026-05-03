@@ -11,13 +11,11 @@
     gtag('config', 'G-NPDV9JEKRR');
   </script>
 
- <link rel="icon" type="image/png" sizes="32x32" href="/Favicon.png?v=2" />
-<link rel="shortcut icon" type="image/png" href="/Favicon.png?v=2" />
-<link rel="apple-touch-icon" href="/Favicon.png?v=2" />
+  <link rel="icon" type="image/png" href="Favicon.png" />
   <meta charset="UTF-8" />
-  <title>Marginr</title>
+  <title>Marginr – AI Margin Assistant for Independent Dental Practices</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Automated cost-cutting for SMEs. Increase margins by 1-2% without layoffs, consultant fees, or quality compromise." />
+  <meta name="description" content="Marginr is an AI margin assistant for independent dental practices. Scan invoices, spot supplier price creep, and turn dental spend into margin opportunities without quality cuts." />
 
   <style>
     :root {
@@ -34,7 +32,7 @@
 
       --text-main: #F6F8FA;
       --text-muted: #A3ADB8;
-      --text-subtle: #6B7684;
+      --text-subtle: #8E99A8;
 
       --success: #7DBCE3;
       --danger: #F07D7D;
@@ -78,6 +76,23 @@
 
     a { text-decoration: none; color: inherit; transition: 0.2s; }
     ul { list-style: none; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 4px;
+    }
 
     .container {
       max-width: var(--max-width);
@@ -269,10 +284,26 @@
     .hero-sub {
       font-size: 1.1rem;
       color: var(--text-muted);
-      margin-bottom: 32px;
+      margin-bottom: 20px;
       max-width: 540px;
       line-height: 1.7;
     }
+
+    .hero-proof {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      margin-bottom: 32px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(168, 214, 242, 0.06);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+
+    .hero-proof strong { color: var(--text-main); font-weight: 700; }
 
     .dashboard-card {
       background:
@@ -335,13 +366,31 @@
     }
 
     .chart-container {
-      height: 200px;
+      height: 182px;
       width: 100%;
       position: relative;
       display: flex;
       align-items: flex-end;
       gap: 12px;
-      padding-top: 20px;
+      padding-top: 18px;
+    }
+
+    .chart-months {
+      display: flex;
+      gap: 12px;
+      margin-top: 9px;
+      padding: 0 1px 1px;
+    }
+
+    .chart-months span {
+      flex: 1;
+      text-align: center;
+      font-size: 0.62rem;
+      line-height: 1;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+      opacity: 0.62;
     }
 
     .bar {
@@ -357,6 +406,11 @@
 
     @keyframes grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
 
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
     .bar:nth-child(1) { height: 30%; animation-delay: 0.1s; }
     .bar:nth-child(2) { height: 45%; animation-delay: 0.2s; }
     .bar:nth-child(3) { height: 35%; animation-delay: 0.3s; }
@@ -367,8 +421,8 @@
 
     .alert-float {
       position: absolute;
-      top: 50px;
-      right: -30px;
+      top: 52px;
+      right: -5%;
       background: rgba(23, 28, 35, 0.94);
       border: 1px solid rgba(168, 214, 242, 0.14);
       padding: 16px;
@@ -378,8 +432,12 @@
       gap: 14px;
       align-items: center;
       animation: float 6s ease-in-out infinite;
-      max-width: 260px;
+      max-width: 230px;
       z-index: 2;
+    }
+
+    .alert-float strong {
+      white-space: nowrap;
     }
 
     .icon-box {
@@ -397,236 +455,6 @@
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
     }
 
-    section { padding: 240px 0; }
-
-    .section-header {
-      margin-bottom: 80px;
-      max-width: 600px;
-    }
-
-    .section-header h2 {
-      font-size: 2.2rem;
-      margin-bottom: 16px;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-    }
-
-    .feature-card {
-      background: linear-gradient(180deg, rgba(31, 38, 48, 0.86), rgba(23, 28, 35, 0.88));
-      padding: 40px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      transition: 0.3s;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.025);
-    }
-
-    .feature-card:hover {
-      border-color: rgba(168, 214, 242, 0.24);
-      transform: translateY(-8px);
-      box-shadow: 0 22px 44px rgba(0,0,0,0.35), 0 0 36px rgba(125, 188, 227, 0.05);
-    }
-
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, rgba(125, 188, 227, 0.14), rgba(168, 214, 242, 0.05));
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      margin-bottom: 24px;
-      border: 1px solid rgba(168, 214, 242, 0.12);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-    }
-
-    .feature-card h3 { margin-bottom: 12px; font-size: 1.1rem; letter-spacing: -0.02em; }
-    .feature-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
-
-    .comparison-box {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.025);
-    }
-
-    .comp-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .comp-row:last-child { border-bottom: none; }
-
-    .comp-col { padding: 40px; }
-
-    .comp-col.bad {
-      background: rgba(240, 125, 125, 0.035);
-      border-right: 1px solid var(--border);
-    }
-
-    .comp-col.good { background: rgba(125, 188, 227, 0.045); }
-
-    .comp-title {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-      font-weight: 650;
-    }
-
-    .comp-list li {
-      margin-bottom: 12px;
-      list-style: none;
-    }
-
-    .ethics-section {
-      background: linear-gradient(to bottom, var(--bg-surface), var(--bg-depth));
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .ethics-content {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .big-stat {
-      font-size: 5rem;
-      font-weight: 820;
-      color: var(--accent-secondary);
-      line-height: 1;
-      margin-bottom: 16px;
-      text-shadow: 0 0 60px rgba(125, 188, 227, 0.42);
-      letter-spacing: -0.06em;
-    }
-
-    .timeline-wrapper {
-      max-width: 600px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .timeline-line {
-      position: absolute;
-      left: 20px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, transparent, var(--accent-primary), transparent);
-      box-shadow: 0 0 15px var(--accent-primary);
-      opacity: 0.5;
-    }
-
-    .timeline-item {
-      display: flex;
-      gap: 40px;
-      margin-bottom: 80px;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
-    }
-
-    .timeline-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .timeline-marker {
-      position: relative;
-      flex-shrink: 0;
-      width: 42px;
-      display: flex;
-      justify-content: center;
-      padding-top: 6px;
-    }
-
-    .timeline-dot {
-      width: 12px;
-      height: 12px;
-      background: var(--bg-depth);
-      border: 2px solid var(--accent-secondary);
-      border-radius: 50%;
-      box-shadow: 0 0 16px var(--accent-primary);
-      z-index: 2;
-    }
-
-    .timeline-content { padding-top: 0; }
-
-    .timeline-date {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--accent-secondary);
-      margin-bottom: 8px;
-      font-weight: 650;
-      display: block;
-    }
-
-    .timeline-title {
-      font-size: 1.2rem;
-      font-weight: 570;
-      color: var(--text-main);
-      margin-bottom: 8px;
-      letter-spacing: -0.02em;
-    }
-
-    .timeline-desc {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .beta-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 40px 60px;
-      margin-top: 40px;
-    }
-
-    .beta-item {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    .beta-icon {
-      color: var(--accent-secondary);
-      font-size: 1.25rem;
-      margin-bottom: 4px;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      background: rgba(125, 188, 227, 0.055);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
-    }
-
-    .beta-title {
-      font-size: 1rem;
-      font-weight: 650;
-      color: var(--text-main);
-      letter-spacing: -0.015em;
-    }
-
-    .beta-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
     .cta-box {
       background:
         radial-gradient(circle at center top, rgba(125, 188, 227, 0.14), transparent 42%),
@@ -638,35 +466,846 @@
       box-shadow: 0 24px 70px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.035);
     }
 
-    input::placeholder { color: var(--text-subtle); }
 
-    footer {
-      padding: 40px 0;
-      border-top: 1px solid var(--border);
+
+    /* Refined subsection system: cleaner rhythm, stronger hierarchy, fewer words */
+    section {
+      padding: 180px 0;
+      position: relative;
+      scroll-margin-top: 104px;
+    }
+
+    .section-flow {
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-flow > .container { width: 100%; }
+
+    .section-flow::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      width: min(980px, calc(100% - 48px));
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(168, 214, 242, 0.12), transparent);
+      opacity: 0.7;
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+      max-width: 700px;
+    }
+
+    .section-header.centered {
+      margin-left: auto;
+      margin-right: auto;
       text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      color: var(--accent-secondary);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent-secondary);
+      box-shadow: 0 0 14px rgba(125, 188, 227, 0.52);
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 3.6vw, 2.85rem);
+      margin-bottom: 16px;
+      letter-spacing: -0.055em;
+      line-height: 1.05;
+      max-width: 760px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 620px;
+    }
+
+    .section-header.centered p { margin: 0 auto; }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      position: relative;
+    }
+
+    .process-card,
+    .pain-row,
+    .rule-card,
+    .beta-item,
+    .quote-card {
+      background:
+        linear-gradient(180deg, rgba(31, 38, 48, 0.76), rgba(23, 28, 35, 0.88));
+      border: 1px solid var(--border);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+
+    .process-card {
+      padding: 26px;
+      border-radius: 22px;
+      min-height: 218px;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .process-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(168, 214, 242, 0.18);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.28), 0 0 34px rgba(125, 188, 227, 0.045), inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      margin-bottom: 22px;
+      color: var(--accent-secondary);
+      background: rgba(125, 188, 227, 0.075);
+      border: 1px solid rgba(168, 214, 242, 0.12);
       font-size: 0.8rem;
+      font-weight: 750;
+    }
+
+    .card-label {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      color: var(--text-subtle);
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.045);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .process-card h3,
+    .rule-card h3,
+    .pain-row h3,
+    .quote-card h3 {
+      font-size: 1.12rem;
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .process-card p,
+    .rule-card p,
+    .pain-row p,
+    .quote-card p {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    .quiet-note {
+      margin-top: 18px;
+      padding: 16px 20px;
+      border-radius: 18px;
+      border: 1px solid rgba(168, 214, 242, 0.10);
+      background: rgba(125, 188, 227, 0.035);
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+
+    .quiet-note strong { color: var(--text-main); font-weight: 650; }
+
+    .split-panel {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 34px;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 46px;
+      background:
+        radial-gradient(circle at left top, rgba(125, 188, 227, 0.11), transparent 42%),
+        linear-gradient(180deg, rgba(31, 38, 48, 0.72), rgba(23, 28, 35, 0.88));
+      box-shadow: 0 24px 70px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.035);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .split-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 75% 18%, rgba(168, 214, 242, 0.10), transparent 34%);
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .panel-copy,
+    .pain-list {
+      position: relative;
+      z-index: 2;
+    }
+
+    .neural-network {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.23;
+      pointer-events: none;
+      z-index: 1;
+      filter: drop-shadow(0 0 18px rgba(168, 214, 242, 0.13));
+      transition: opacity 0.45s ease, filter 0.45s ease;
+    }
+
+    .split-panel:hover .neural-network {
+      opacity: 0.42;
+      filter: drop-shadow(0 0 30px rgba(168, 214, 242, 0.20));
+    }
+
+    .split-panel:has(.pain-row:hover) .neural-network {
+      opacity: 0.50;
+      filter: drop-shadow(0 0 34px rgba(168, 214, 242, 0.24));
+    }
+
+    .split-panel:has(.pain-row:hover) .neural-link {
+      stroke: rgba(168, 214, 242, 0.42);
+      animation-duration: 6.5s;
+    }
+
+    .neural-mesh {
+      transform-origin: center;
+      animation: neuralMeshDrift 16s ease-in-out infinite alternate;
+    }
+
+    .neural-link,
+    .neural-polygon {
+      fill: none;
+      stroke: rgba(168, 214, 242, 0.30);
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .neural-link {
+      stroke-dasharray: 5 14;
+      animation: neuralFlow 9s linear infinite;
+    }
+
+    .neural-link-soft {
+      stroke: rgba(125, 188, 227, 0.16);
+      stroke-width: 0.8;
+      stroke-dasharray: 3 18;
+      animation-duration: 13s;
+      animation-direction: reverse;
+    }
+
+    .neural-polygon {
+      stroke: rgba(168, 214, 242, 0.14);
+      stroke-width: 0.75;
+    }
+
+    .neural-node {
+      fill: rgba(168, 214, 242, 0.82);
+      stroke: rgba(168, 214, 242, 0.12);
+      stroke-width: 10;
+      animation: nodePulse 4.6s ease-in-out infinite;
+      transform-origin: center;
+      transform-box: fill-box;
+    }
+
+    .neural-node:nth-of-type(2) { animation-delay: 0.4s; }
+    .neural-node:nth-of-type(3) { animation-delay: 0.8s; }
+    .neural-node:nth-of-type(4) { animation-delay: 1.2s; }
+    .neural-node:nth-of-type(5) { animation-delay: 1.6s; }
+    .neural-node:nth-of-type(6) { animation-delay: 2.0s; }
+    .neural-node:nth-of-type(7) { animation-delay: 2.4s; }
+    .neural-node:nth-of-type(8) { animation-delay: 2.8s; }
+    .neural-node:nth-of-type(9) { animation-delay: 3.2s; }
+    .neural-node:nth-of-type(10) { animation-delay: 3.6s; }
+
+    @keyframes neuralMeshDrift {
+      from { transform: translate3d(-8px, 5px, 0) scale(1); }
+      to { transform: translate3d(10px, -7px, 0) scale(1.018); }
+    }
+
+    @keyframes neuralFlow {
+      from { stroke-dashoffset: 0; }
+      to { stroke-dashoffset: -96; }
+    }
+
+    @keyframes nodePulse {
+      0%, 100% { transform: scale(1); opacity: 0.58; }
+      45% { transform: scale(1.22); opacity: 1; }
+    }
+
+    .panel-copy h2 {
+      font-size: clamp(2rem, 3vw, 2.65rem);
+      line-height: 1.05;
+      letter-spacing: -0.055em;
+      margin-bottom: 18px;
+    }
+
+    .panel-copy p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 500px;
+    }
+
+    .pain-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .pain-row {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 14px;
+      padding: 16px;
+      border-radius: 18px;
+      align-items: start;
+      background: rgba(15, 18, 23, 0.24);
+      border: 1px solid rgba(168, 214, 242, 0.10);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.025);
+      transition: transform 0.24s ease, border-color 0.24s ease, background 0.24s ease, box-shadow 0.24s ease;
+    }
+
+    .pain-row:hover {
+      transform: translateX(6px);
+      border-color: rgba(168, 214, 242, 0.30);
+      background: rgba(125, 188, 227, 0.075);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.045);
+    }
+
+    .pain-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(125, 188, 227, 0.075);
+      border: 1px solid rgba(168, 214, 242, 0.12);
+      color: var(--accent-secondary);
+      font-size: 1.1rem;
+      transition: transform 0.24s ease, background 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+    }
+
+    .pain-row:hover .pain-icon {
+      transform: scale(1.08) rotate(-3deg);
+      background: rgba(168, 214, 242, 0.13);
+      border-color: rgba(168, 214, 242, 0.32);
+      box-shadow: 0 0 22px rgba(168, 214, 242, 0.12);
+    }
+
+    .pain-row h3 {
+      transition: color 0.24s ease;
+    }
+
+    .pain-row:hover h3 {
+      color: var(--accent-secondary);
+    }
+
+    .ethics-section {
+      background:
+        radial-gradient(circle at center top, rgba(125, 188, 227, 0.08), transparent 45%),
+        linear-gradient(to bottom, rgba(23, 28, 35, 0.74), var(--bg-depth));
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ethics-content {
+      max-width: 860px;
+      text-align: left;
+    }
+
+    .ethics-hero {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 36px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .big-stat-wrap {
+      min-width: 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .big-stat {
+      font-size: clamp(4.8rem, 8vw, 7rem);
+      font-weight: 800;
+      color: var(--accent-primary);
+      line-height: 1;
+      text-shadow: 0 0 56px var(--accent-glow);
+    }
+
+    .ethics-copy h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.04;
+      letter-spacing: -0.055em;
+      margin-bottom: 14px;
+    }
+
+    .ethics-copy p {
+      color: var(--text-muted);
+      line-height: 1.75;
+      font-size: 1.02rem;
+    }
+
+    .rule-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .rule-card {
+      padding: 20px;
+      border-radius: 20px;
+    }
+
+    .rule-card h3 {
+      font-size: 1rem;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .rule-card h3 span { color: var(--accent-secondary); }
+
+    .timeline-wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 20px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--accent-primary), transparent);
+      box-shadow: 0 0 15px var(--accent-glow);
+      opacity: 0.38;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 44px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-marker {
+      position: relative;
+      flex-shrink: 0;
+      width: 42px;
+      display: flex;
+      justify-content: center;
+      padding-top: 28px;
+    }
+
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      background: var(--bg-depth);
+      border: 2px solid var(--accent-primary);
+      border-radius: 50%;
+      box-shadow: 0 0 15px var(--accent-glow);
+      z-index: 2;
+    }
+
+    .timeline-content {
+      padding: 0 0 0 4px;
+    }
+
+    .timeline-date {
+      display: block;
+      color: var(--accent-primary);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .timeline-title {
+      font-size: 1.16rem;
+      font-weight: 650;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .timeline-desc {
+      max-width: 640px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .beta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 0;
+    }
+
+    .beta-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+      min-height: 100%;
+      padding: 24px;
+      border-radius: 20px;
+    }
+
+    .beta-icon {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      margin-bottom: 10px;
+      background: rgba(125, 188, 227, 0.075);
+      border: 1px solid rgba(168, 214, 242, 0.16);
+      color: var(--accent-primary);
+      font-size: 1.12rem;
+    }
+
+    .beta-title {
+      font-size: 1rem;
+      font-weight: 750;
+      color: var(--text-main);
+      margin-top: 2px;
+    }
+
+    .beta-desc {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .quote-card {
+      margin-top: 18px;
+      padding: 24px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .quote-copy {
+      max-width: 860px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .quote-card p {
+      max-width: none;
+      margin: 0;
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+
+    .quote-crown {
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 1.35rem;
+      line-height: 1;
+      filter: drop-shadow(0 0 14px rgba(167, 219, 250, 0.34));
+    }
+
+    .quote-action {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+
+
+    .qa-section {
+      min-height: auto;
+      padding-top: 140px;
+    }
+
+    .qa-list {
+      margin-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+
+    .qa-item {
+      border-bottom: 1px solid var(--border);
+      background: transparent;
+    }
+
+    .qa-item summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 24px 0;
+      color: var(--text-main);
+      font-size: 1.12rem;
+      font-weight: 650;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+    }
+
+    .qa-item summary::-webkit-details-marker { display: none; }
+
+    .qa-item summary::after {
+      content: "⌄";
+      flex-shrink: 0;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      line-height: 1;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .qa-item[open] summary::after {
+      transform: rotate(180deg);
+      color: var(--accent-secondary);
+    }
+
+    .qa-item p {
+      max-width: 760px;
+      padding: 0 0 24px;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .qa-item strong { color: var(--text-main); font-weight: 650; }
+
+    .form-status,
+    .ml-form-successContent p {
+      margin-top: 14px;
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      min-height: 1.2em;
+    }
+
+    /* MailerLite form: use MailerLite's endpoint, but keep Marginr's styling. */
+    #mlb2-40749345.ml-form-embedContainer,
+    #mlb2-40749345 .ml-form-align-center,
+    #mlb2-40749345 .ml-form-embedWrapper,
+    #mlb2-40749345 .ml-form-embedBody,
+    #mlb2-40749345 .ml-form-formContent,
+    #mlb2-40749345 .ml-form-fieldRow,
+    #mlb2-40749345 .ml-field-group {
+      width: 100%;
+    }
+
+    #mlb2-40749345 .ml-form-embedContent,
+    #mlb2-40749345 .ml-form-successContent h4 {
+      display: none;
+    }
+
+    #mlb2-40749345 .ml-block-form {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      max-width: 460px;
+      margin: 0 auto;
+    }
+
+    #mlb2-40749345 .ml-form-formContent {
+      flex: 1;
+    }
+
+    #mlb2-40749345 input[type="email"] {
+      width: 100%;
+      height: 48px;
+      padding: 12px 16px;
+      border-radius: 100px;
+      border: 1px solid var(--border-strong);
+      background: rgba(255,255,255,0.05);
+      color: var(--text-main);
+      outline: none;
+      font: inherit;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    #mlb2-40749345 input[type="email"]::placeholder {
       color: var(--text-subtle);
     }
 
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
+    #mlb2-40749345 input[type="email"]:focus {
+      border-color: rgba(160, 218, 255, 0.55);
+      background: rgba(255,255,255,0.07);
+      box-shadow: 0 0 0 4px rgba(160, 218, 255, 0.08);
+    }
+
+    #mlb2-40749345 .ml-form-embedSubmit button {
+      min-height: 48px;
+      white-space: nowrap;
+    }
+
+    #mlb2-40749345 .ml-form-embedSubmit button.loading {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      min-width: 160px;
+    }
+
+    .ml-form-embedSubmitLoad {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+    }
+
+    .ml-form-embedSubmitLoad::after {
+      content: "";
+      display: block;
+      width: 12px;
+      height: 12px;
+      margin: 1px;
+      border-radius: 50%;
+      border: 3px solid rgba(15, 18, 23, 0.95);
+      border-color: rgba(15, 18, 23, 0.95) rgba(15, 18, 23, 0.95) rgba(15, 18, 23, 0.95) transparent;
+      animation: ml-form-embedSubmitLoad 1s linear infinite;
+    }
+
+    @keyframes ml-form-embedSubmitLoad {
+      to { transform: rotate(360deg); }
+    }
+
+    .ml-error input[type="email"] {
+      border-color: rgba(239, 68, 68, 0.85) !important;
+    }
+
+    footer {
+      padding: 36px 0 max(36px, env(safe-area-inset-bottom));
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    footer .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 24px;
+    }
+
+    footer p {
+      width: 100%;
+      margin: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+
+      .pain-row:hover,
+      .pain-row:hover .pain-icon,
+      .split-panel:hover .neural-network,
+      .neural-mesh {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .alert-float { right: 0; }
+    }
+
+    @media (max-width: 980px) {
+      .process-grid,
+      .rule-grid,
+      .beta-grid,
+      .split-panel,
+      .ethics-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .process-card { min-height: auto; }
+      .quote-card { align-items: flex-start; flex-direction: column; }
+      .quote-copy { max-width: 100%; }
     }
 
     @media (max-width: 768px) {
-      section { padding: 120px 0; }
+      section { padding: 110px 0; }
+      .container { padding: 0 20px; }
       .hero-grid { grid-template-columns: 1fr; gap: 50px; }
-      .hero { padding-top: 60px; min-height: auto;}
+      .hero { padding-top: 60px; min-height: auto; }
       .nav-links { display: none; }
-      .comp-row { grid-template-columns: 1fr; }
-      .comp-col.bad { border-right: none; border-bottom: 1px solid var(--border); }
       .dashboard-card { margin-top: 20px; transform: none; }
       .dashboard-card:hover { transform: none; }
       .alert-float { right: 0; top: -20px; position: relative; margin: 0 auto; }
       h1 { font-size: 2.2rem; }
+      .hero-proof { align-items: flex-start; border-radius: 18px; }
+      .chart-months { gap: 10px; }
+      .stat-item div { font-size: 1.12rem; }
+      .dash-header { gap: 16px; }
+      .process-grid,
+      .quality-points,
+      .beta-grid { grid-template-columns: 1fr; }
+      .pain-panel { padding: 26px; }
+      .pain-row:hover { transform: translateY(-2px); }
+      .neural-network {
+        inset: auto;
+        top: 0;
+        left: 50%;
+        width: 220%;
+        max-width: none;
+        height: 100%;
+        opacity: 0.16;
+        transform: translateX(-50%);
+        transform-origin: center center;
+      }
       .timeline-item { gap: 20px; }
-      .beta-grid { gap: 40px; }
+      .qa-item summary { font-size: 1.08rem; }
+      .cta-box form { flex-direction: column; }
+      .cta-box form .btn { width: 100%; }
+      #mlb2-40749345 .ml-block-form { flex-direction: column; }
+      #mlb2-40749345 .ml-form-embedSubmit,
+      #mlb2-40749345 .ml-form-embedSubmit button { width: 100%; }
+      footer .container { flex-direction: column; gap: 14px; }
     }
   </style>
 </head>
@@ -677,8 +1316,10 @@
   <header>
     <div class="container nav-inner">
       <div class="logo">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 100 100" role="img" shape-rendering="geometricPrecision">
+        <span class="brand-mark">
+          <svg viewBox="0 0 100 100" role="img" aria-labelledby="marginr-logo-title marginr-logo-desc" shape-rendering="geometricPrecision">
+            <title id="marginr-logo-title">Marginr logo</title>
+            <desc id="marginr-logo-desc">A three-part circular swirl mark in the Charcoal Ice brand palette.</desc>
             <defs>
               <linearGradient id="marginrLogoGradient" x1="18" y1="12" x2="82" y2="88" gradientUnits="userSpaceOnUse">
                 <stop offset="0" stop-color="#A8D6F2"/>
@@ -696,11 +1337,11 @@
 
       <nav class="nav-links">
         <a href="#how">How it works</a>
-        <a href="#timeline">The First 90 Days</a>
-        <a href="#manifesto">No-Layoff Rule</a>
+        <a href="#manifesto">No quality cuts</a>
+        <a href="#timeline">Roadmap</a>
       </nav>
 
-      <a href="#waitlist" class="btn btn-primary">Start Free Scan</a>
+      <a href="#waitlist" class="btn btn-primary">Apply for Access</a>
     </div>
   </header>
 
@@ -710,19 +1351,20 @@
         <div class="hero-content">
           <div class="hero-tag">
             <span class="dot"></span>
-            Private-equity level margins. No layoffs.
+            Built for independent dental practices · In development
           </div>
-          <h1>Find the invisible profit leaking from your books.</h1>
+          <h1>Find the margin hiding in your dental invoices.</h1>
           <p class="hero-sub">
-            Marginr continuously scans your invoices and subscriptions to spot inefficiencies. It suggests simple fixes that boost margins—without layoffs, quality cuts, or new consultants.
+            Your biggest margin leak probably isn’t obvious. It’s buried in supplier invoices, price creep, and overpayments you’re too busy to audit. We turn that into profit, without compromising quality.
           </p>
+          <div class="hero-proof"><span>📈</span><span>Even a small <strong>$240/mo</strong> leak becomes <strong>$2,880/yr</strong> back into the practice.</span></div>
           <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
-            <a href="#waitlist" class="btn btn-primary">Connect Your Books</a>
+            <a href="#waitlist" class="btn btn-primary">Apply for Founding Access</a>
             <a href="#how" class="btn btn-outline">See how it works</a>
           </div>
           <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 24px; display: flex; align-items: center; gap: 6px;">
-            <span style="color: var(--accent-secondary);">🔒</span>
-            Bank-grade read-only access. No write permissions.
+            <span style="color: var(--accent-primary);">🔒</span>
+            Privacy-first, practice-aware, and built to avoid blind product switching.
           </p>
         </div>
 
@@ -730,15 +1372,15 @@
           <div class="dash-header">
             <div class="stat-item">
               <label>Margin Impact (YTD)</label>
-              <div>+€14,250 <span class="gain">▲ 2.1%</span></div>
+              <div>+$14,250 <span class="gain">▲ 2.1%</span></div>
             </div>
             <div class="stat-item" style="text-align: right;">
-              <label>Active Optimizations</label>
+              <label>Active Opportunities</label>
               <div>12</div>
             </div>
           </div>
 
-          <div class="chart-title" style="font-size: 0.75rem; color:var(--text-subtle); margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Cumulative Savings</div>
+          <div class="chart-title" style="font-size: 0.75rem; color:var(--text-muted); margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Margin Opportunities</div>
           <div class="chart-container">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -748,89 +1390,181 @@
             <div class="bar"></div>
             <div class="bar"></div>
           </div>
+          <div class="chart-months" aria-hidden="true">
+            <span>Jan</span>
+            <span>Feb</span>
+            <span>Mar</span>
+            <span>Apr</span>
+            <span>May</span>
+            <span>Jun</span>
+            <span>Jul</span>
+          </div>
 
           <div class="alert-float">
-            <div class="icon-box">⚡</div>
+            <div class="icon-box">📊</div>
             <div style="font-size: 0.85rem;">
-              <strong style="display:block; color: var(--text-main); margin-bottom: 2px;">Duplicate Sub Detected</strong>
-              <span style="color: var(--text-muted); font-size: 0.8rem;">Save €240/mo instantly</span>
+              <strong style="display:block; color: var(--text-main); margin-bottom: 2px;">Supplier Price Creep</strong>
+              <span style="color: var(--text-muted); font-size: 0.8rem;">$240/mo detected</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="how">
+    <section id="how" class="section-flow">
       <div class="container">
-        <div class="section-header">
-          <h2 style="color: var(--text-main);">Silent corrections.<br>Compounding gains.</h2>
-          <p style="color: var(--text-muted);">Most businesses leak 5-10% of revenue in places humans forget to look. Marginr works in the background to plug the holes.</p>
+        <div class="section-header reveal-on-scroll">
+          <span class="eyebrow">How it works</span>
+          <h2>A quiet audit layer for the expenses dentists rarely check.</h2>
+          <p>
+            Upload invoices. Marginr checks price changes, duplicate charges, overpayments, and supplier drift—then shows only the few items worth reviewing.
+          </p>
         </div>
 
-        <div class="features-grid">
-          <div class="feature-card reveal-on-scroll delay-100">
-            <div class="feature-icon">🔍</div>
-            <h3>Invoice Autopsy</h3>
-            <p>We scan every supplier invoice for price creep, duplicate charges, and inconsistencies against your contract terms.</p>
+        <div class="process-grid">
+          <div class="process-card reveal-on-scroll delay-100">
+            <div class="step-number">01</div>
+            <span class="card-label">🔭 V0 focus</span>
+            <h3>Upload dental invoices.</h3>
+            <p>Start with supplier PDFs you already receive. No migration, no system overhaul.</p>
           </div>
-          <div class="feature-card reveal-on-scroll delay-200">
-            <div class="feature-icon">🔄</div>
-            <h3>Zombie Subscriptions</h3>
-            <p>Identifies SaaS tools and recurring services that haven't been used in 90 days but are still charging your card.</p>
+
+          <div class="process-card reveal-on-scroll delay-200">
+            <div class="step-number">02</div>
+            <span class="card-label">🧾 Detection</span>
+            <h3>Catch price creep.</h3>
+            <p>Spot repeated items that became more expensive, duplicate charges, and suspicious overpayments.</p>
           </div>
-          <div class="feature-card reveal-on-scroll delay-300">
-            <div class="feature-icon">⚖️</div>
-            <h3>Vendor Benchmarking</h3>
-            <p>Know instantly if you are paying 20% more for raw materials or shipping than the industry average.</p>
+
+          <div class="process-card reveal-on-scroll delay-300">
+            <div class="step-number">03</div>
+            <span class="card-label">☕ Approval</span>
+            <h3>Approve over coffee.</h3>
+            <p>Each opportunity becomes a one-minute decision: what changed, why it matters, and what to do next.</p>
           </div>
+        </div>
+
+        <div class="quiet-note reveal-on-scroll delay-200">
+          <strong>Not cheaper at all costs.</strong> Marginr focuses first on clean savings: price creep, duplicate charges, and avoidable leakage.
         </div>
       </div>
     </section>
 
-    <section id="comparison">
+    <section id="comparison" class="section-flow">
       <div class="container">
-        <div class="comparison-box">
-          <div class="comp-row">
-            <div class="comp-col bad reveal-on-scroll">
-              <div class="comp-title" style="color: var(--danger);">Traditional Approach</div>
-              <h3 style="margin-bottom: 16px;">"Cost Cutting"</h3>
-              <ul class="comp-list" style="font-size: 0.9rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 12px;">
-                <li>❌ Hiring expensive consultants</li>
-                <li>❌ Laying off staff to boost short-term numbers</li>
-                <li>❌ Switching to lower quality materials</li>
-                <li>❌ Creates fear and lowers morale</li>
-              </ul>
+        <div class="split-panel reveal-on-scroll">
+          <svg class="neural-network" viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+            <g class="neural-mesh">
+              <polygon class="neural-polygon" points="58,112 178,66 286,142 214,252 88,236" />
+              <polygon class="neural-polygon" points="286,142 416,76 548,146 488,292 342,262" />
+              <polygon class="neural-polygon" points="548,146 720,92 854,202 772,350 604,312" />
+              <polygon class="neural-polygon" points="854,202 1018,132 1134,248 1052,414 892,362" />
+              <polyline class="neural-link" points="58,112 178,66 286,142 416,76 548,146 720,92 854,202 1018,132 1134,248" />
+              <polyline class="neural-link neural-link-soft" points="88,236 214,252 342,262 488,292 604,312 772,350 892,362 1052,414" />
+              <polyline class="neural-link" points="178,66 214,252 416,76 488,292 720,92 772,350 1018,132 1052,414" />
+              <polyline class="neural-link neural-link-soft" points="58,112 286,142 342,262 548,146 604,312 854,202 892,362 1134,248" />
+              <line class="neural-link neural-link-soft" x1="286" y1="142" x2="488" y2="292" />
+              <line class="neural-link neural-link-soft" x1="548" y1="146" x2="772" y2="350" />
+              <line class="neural-link neural-link-soft" x1="854" y1="202" x2="1052" y2="414" />
+              <circle class="neural-node" cx="58" cy="112" r="4.5" />
+              <circle class="neural-node" cx="178" cy="66" r="5.5" />
+              <circle class="neural-node" cx="286" cy="142" r="4.5" />
+              <circle class="neural-node" cx="214" cy="252" r="5" />
+              <circle class="neural-node" cx="416" cy="76" r="4.5" />
+              <circle class="neural-node" cx="548" cy="146" r="5.5" />
+              <circle class="neural-node" cx="720" cy="92" r="5" />
+              <circle class="neural-node" cx="854" cy="202" r="5.5" />
+              <circle class="neural-node" cx="1018" cy="132" r="4.5" />
+              <circle class="neural-node" cx="1134" cy="248" r="5.5" />
+              <circle class="neural-node" cx="1052" cy="414" r="4.5" />
+              <circle class="neural-node" cx="772" cy="350" r="4.5" />
+              <circle class="neural-node" cx="488" cy="292" r="4.5" />
+              <circle class="neural-node" cx="88" cy="236" r="4" />
+            </g>
+          </svg>
+          <div class="panel-copy">
+            <span class="eyebrow">Built for dentist-owners</span>
+            <h2>The pain is not accounting. It is attention.</h2>
+            <p>
+              Dental owners know costs matter. The problem is that invoices arrive while patients, staff, labs, and operations need attention first.
+            </p>
+          </div>
+
+          <div class="pain-list">
+            <div class="pain-row">
+              <div class="pain-icon">🌙</div>
+              <div>
+                <h3>Passive scanning, even when you are busy.</h3>
+                <p>Marginr works 24/7 in the background while you see patients, eat, sleep, and run the practice.</p>
+              </div>
             </div>
-            <div class="comp-col good reveal-on-scroll delay-200">
-              <div class="comp-title" style="color: var(--accent-secondary);">The Marginr Way</div>
-              <h3 style="margin-bottom: 16px;">"Efficiency Mining"</h3>
-              <ul class="comp-list" style="font-size: 0.9rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 12px;">
-                <li>✅ AI runs autonomously in background</li>
-                <li>✅ Finds savings in process & procurement only</li>
-                <li>✅ Maintains quality standards strictly</li>
-                <li>✅ Zero impact on headcount</li>
-              </ul>
+
+            <div class="pain-row">
+              <div class="pain-icon">🦷</div>
+              <div>
+                <h3>No blind product switching.</h3>
+                <p>The assistant does not assume cheaper is better. It keeps clinical context in view.</p>
+              </div>
+            </div>
+
+            <div class="pain-row">
+              <div class="pain-icon">🔒</div>
+              <div>
+                <h3>Privacy and accuracy come first.</h3>
+                <p>Every recommendation should be traceable to invoice data, not vague AI guesses.</p>
+              </div>
+            </div>
+
+            <div class="pain-row">
+              <div class="pain-icon">🔌</div>
+              <div>
+                <h3>No forced system change.</h3>
+                <p>V0 starts with invoice scans. App and API integrations are planned for later.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="manifesto" class="ethics-section">
+    <section id="manifesto" class="ethics-section section-flow">
       <div class="container ethics-content">
-        <div class="big-stat scale-in-scroll">0</div>
-        <h2 class="reveal-on-scroll delay-100">Layoffs Recommended</h2>
-        <p class="reveal-on-scroll delay-200" style="color: var(--text-muted); margin-top: 20px; font-size: 1.1rem;">
-          This is hard-coded into our DNA. Marginr is designed to find money that is being <em>wasted</em>, not money that is being paid to your people. We believe the best way to increase margins is to make your existing team more efficient by removing the friction of bad vendors and wasteful spending.
-        </p>
+        <div class="ethics-hero">
+          <div class="big-stat scale-in-scroll">0</div>
+          <div class="ethics-copy">
+            <span class="eyebrow">No quality cuts</span>
+            <h2>Margin opportunities should not feel like downgrades.</h2>
+            <p>
+              Marginr protects clinical standards. It looks for clean savings first: same item, unexpected price increase, duplicate charge, or avoidable overpay.
+            </p>
+          </div>
+        </div>
+
+        <div class="rule-grid">
+          <div class="rule-card reveal-on-scroll delay-100">
+            <h3><span>🧾</span> Same item first</h3>
+            <p>Price creep on products you already buy is the cleanest opportunity.</p>
+          </div>
+          <div class="rule-card reveal-on-scroll delay-200">
+            <h3><span>🧠</span> Context first</h3>
+            <p>The assistant considers why you prefer a product before suggesting alternatives.</p>
+          </div>
+          <div class="rule-card reveal-on-scroll delay-300">
+            <h3><span>☕</span> Dentist approves</h3>
+            <p>Every recommendation stays a simple decision, not an automatic replacement.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="timeline">
+    <section id="timeline" class="section-flow">
       <div class="container">
-        <div class="section-header" style="margin: 0 auto 100px; text-align: center;">
-          <h2>The first 90 days.</h2>
-          <p style="color: var(--text-muted);">No big bangs. Just quiet, steady compounding.</p>
+        <div class="section-header centered reveal-on-scroll">
+          <span class="eyebrow">Roadmap</span>
+          <h2>From invoice scanner to 24/7 margin assistant.</h2>
+          <p>
+            The product starts narrow so it can be trusted. Each step adds passive coverage without adding work for the practice owner.
+          </p>
         </div>
 
         <div class="timeline-wrapper">
@@ -841,9 +1575,9 @@
               <div class="timeline-dot"></div>
             </div>
             <div class="timeline-content">
-              <span class="timeline-date">Day 1</span>
-              <div class="timeline-title">Secure Connection</div>
-              <div class="timeline-desc">You connect your accounting software and bank feed (read-only). The encryption handshake takes 2 minutes. No setup fees.</div>
+              <span class="timeline-date">Now · V0 MVP</span>
+              <div class="timeline-title">Dental invoice auditing</div>
+              <div class="timeline-desc">Scan supplier invoices, extract line items, and identify opportunities around price creep, overpayments, and suspicious changes.</div>
             </div>
           </div>
 
@@ -852,9 +1586,9 @@
               <div class="timeline-dot"></div>
             </div>
             <div class="timeline-content">
-              <span class="timeline-date">Week 1</span>
-              <div class="timeline-title">The Initial Scan</div>
-              <div class="timeline-desc">Marginr surfaces the "low hanging fruit"—unused software seats, duplicate vendor accounts, and billing errors. Immediate cash flow relief.</div>
+              <span class="timeline-date">Soon</span>
+              <div class="timeline-title">Practice-aware opportunity scoring</div>
+              <div class="timeline-desc">Separate real savings from false positives by learning product preferences, purchase patterns, and clinical context.</div>
             </div>
           </div>
 
@@ -863,9 +1597,9 @@
               <div class="timeline-dot"></div>
             </div>
             <div class="timeline-content">
-              <span class="timeline-date">Week 2</span>
-              <div class="timeline-title">Automation Kicks In</div>
-              <div class="timeline-desc">You approve specific savings rules. Future invoices are now automatically checked against these rules before you pay them.</div>
+              <span class="timeline-date">In development</span>
+              <div class="timeline-title">One-minute approval flow</div>
+              <div class="timeline-desc">Turn each margin opportunity into a quick approve/dismiss decision with the evidence shown clearly enough to review during coffee.</div>
             </div>
           </div>
 
@@ -874,58 +1608,57 @@
               <div class="timeline-dot"></div>
             </div>
             <div class="timeline-content">
-              <span class="timeline-date">Month 3</span>
-              <div class="timeline-title">Margin Impact Visible</div>
-              <div class="timeline-desc">Small gains have compounded. Your P&L shows a 1-2% margin uplift. Your team hasn't felt a thing, but your cash reserves have.</div>
+              <span class="timeline-date">Future integrations</span>
+              <div class="timeline-title">App and API connectivity</div>
+              <div class="timeline-desc">Connect with the tools practices already use so Marginr can become a passive 24/7 companion for practice profitability.</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section>
+    <section class="section-flow">
       <div class="container">
-        <div class="section-header" style="margin-bottom: 40px;">
-          <h2>Private Beta Privileges</h2>
-          <p style="color: var(--text-muted);">We are onboarding a small cohort of owners to shape the product.</p>
+        <div class="section-header reveal-on-scroll">
+          <span class="eyebrow">Founding cohort</span>
+          <h2>Get in while Marginr is still being shaped around practices like yours.</h2>
+          <p>
+            Bring a few supplier invoices, see what the assistant catches, and help decide what gets built next. No migration project. No system switch.
+          </p>
         </div>
 
         <div class="beta-grid">
           <div class="beta-item reveal-on-scroll delay-100">
-            <div class="beta-icon">⚡</div>
-            <div class="beta-title">Priority Scanning</div>
-            <div class="beta-desc">Your data is processed first in the queue, ensuring you receive financial insights and alerts faster than standard users.</div>
+            <div class="beta-icon">🧾</div>
+            <div class="beta-title">Start with invoices</div>
+            <div class="beta-desc">Try it with supplier PDFs you already receive. Simple first scan, no complex setup.</div>
           </div>
 
           <div class="beta-item reveal-on-scroll delay-200">
-            <div class="beta-icon">🤝</div>
-            <div class="beta-title">White-Glove Onboarding</div>
-            <div class="beta-desc">Direct access to our engineering team to ensure your data connection is secure, custom-mapped, and seamless.</div>
+            <div class="beta-icon">🧠</div>
+            <div class="beta-title">Shape the logic</div>
+            <div class="beta-desc">Your products, suppliers, and preferences help teach the assistant what matters.</div>
           </div>
 
           <div class="beta-item reveal-on-scroll delay-300">
-            <div class="beta-icon">🛠</div>
-            <div class="beta-title">Direct Roadmap Influence</div>
-            <div class="beta-desc">Request specific integrations, vendor rules, or features. We build what you need to solve your specific problems.</div>
+            <div class="beta-icon">🔒</div>
+            <div class="beta-title">Keep control</div>
+            <div class="beta-desc">Recommendations stay traceable, private, and ready for your approval before action.</div>
           </div>
 
           <div class="beta-item reveal-on-scroll delay-100">
-            <div class="beta-icon">🔮</div>
-            <div class="beta-title">Early Automation Access</div>
-            <div class="beta-desc">Get exclusive first access to new autonomous cost-saving agents before they are rolled out to the public.</div>
+            <div class="beta-icon">🔌</div>
+            <div class="beta-title">Move up the roadmap</div>
+            <div class="beta-desc">Founding practices help prioritize the app and API connections that come next.</div>
           </div>
+        </div>
 
-          <div class="beta-item reveal-on-scroll delay-200">
-            <div class="beta-icon">🔒</div>
-            <div class="beta-title">Lifetime Pricing Lock</div>
-            <div class="beta-desc">Lock in our lowest early-adopter pricing tier forever, regardless of how many features we add later.</div>
+        <div class="quote-card reveal-on-scroll delay-200">
+          <div class="quote-copy">
+            <span class="quote-crown" aria-hidden="true">👑</span>
+            <p>Early users get the closest version of Marginr to their workflow: priority input, first access to new automations, and founding-user advantages as the product expands.</p>
           </div>
-
-          <div class="beta-item reveal-on-scroll delay-300">
-            <div class="beta-icon">💬</div>
-            <div class="beta-title">Founder Channel</div>
-            <div class="beta-desc">Direct Slack line to our founding team. No support tickets—just text us if something needs fixing.</div>
-          </div>
+          <a href="#waitlist" class="btn btn-primary quote-action">Apply for Founding Access</a>
         </div>
       </div>
     </section>
@@ -933,22 +1666,93 @@
     <section id="waitlist">
       <div class="container">
         <div class="cta-box reveal-on-scroll">
-          <h2 style="margin-bottom: 16px;">Stop leaving profit on the table.</h2>
-          <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 32px;">
-            Join the waitlist for early access. The average pilot company finds €12k in annual savings within the first 48 hours.
+          <h2 style="margin-bottom: 16px;">See where your dental practice may be overpaying.</h2>
+          <p style="color: var(--text-muted); max-width: 560px; margin: 0 auto 32px;">
+            Get early access to Marginr and help shape a passive AI assistant that turns dental invoices into margin opportunities—without quality cuts or finance busywork.
           </p>
-          <form style="display: flex; gap: 10px; justify-content: center; max-width: 400px; margin: 0 auto;">
-            <input type="email" placeholder="work@email.com" style="flex: 1; padding: 12px 16px; border-radius: 100px; border: 1px solid var(--border); background: rgba(246,248,250,0.045); color: var(--text-main); outline: none;">
-            <button class="btn btn-primary">Apply to the beta</button>
-          </form>
+          <div id="mlb2-40749345" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-40749345">
+            <div class="ml-form-align-center">
+              <div class="ml-form-embedWrapper embedForm">
+                <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                  <div class="ml-form-embedContent" aria-hidden="true">
+                    <h4>Early access</h4>
+                    <p>Join the Marginr early access list.</p>
+                  </div>
+
+                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2312801/forms/186452911636612681/subscribe" data-code="" method="post" target="_blank">
+                    <div class="ml-form-formContent">
+                      <div class="ml-form-fieldRow ml-last-item">
+                        <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                          <label for="waitlist-email" class="sr-only">Work email for early access</label>
+                          <input id="waitlist-email" aria-label="Work email for early access" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="doctor@practice.com" autocomplete="email" required>
+                        </div>
+                      </div>
+                    </div>
+
+                    <input type="hidden" name="ml-submit" value="1">
+
+                    <div class="ml-form-embedSubmit">
+                      <button type="submit" class="btn btn-primary primary">Apply for Founding Access</button>
+                      <button disabled="disabled" type="button" class="btn btn-primary loading" style="display: none;" aria-hidden="true">
+                        <span class="ml-form-embedSubmitLoad"></span>
+                        <span class="sr-only">Loading...</span>
+                      </button>
+                    </div>
+
+                    <input type="hidden" name="anticsrf" value="true">
+                  </form>
+                </div>
+
+                <div class="ml-form-successBody row-success" style="display: none;">
+                  <div class="ml-form-successContent">
+                    <h4>Thank you!</h4>
+                    <p role="status" aria-live="polite">You're on the early access list. We’ll be in touch soon.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <section id="qa" class="section-flow qa-section">
+      <div class="container">
+        <div class="section-header centered reveal-on-scroll">
+          <span class="eyebrow">Q&A</span>
+          <h2>Questions dentist-owners usually ask first.</h2>
+          <p>Simple answers for the concerns that matter before trusting an assistant with supplier spend.</p>
+        </div>
+
+        <div class="qa-list">
+          <details class="qa-item reveal-on-scroll delay-100">
+            <summary>Will Marginr tell me to buy lower-quality products?</summary>
+            <p>No. The first focus is clean margin leakage: price creep, duplicate charges, overpayments, and changes on products you already buy.</p>
+          </details>
+
+          <details class="qa-item reveal-on-scroll delay-200">
+            <summary>Do I need to switch accounting systems?</summary>
+            <p>No. The V0 starts with supplier invoice uploads. Future app and API integrations are planned as the product matures.</p>
+          </details>
+
+          <details class="qa-item reveal-on-scroll delay-100">
+            <summary>How much time does it take?</summary>
+            <p>The goal is a one-minute review: see the issue, check the evidence, then approve or dismiss the opportunity.</p>
+          </details>
+
+          <details class="qa-item reveal-on-scroll delay-200">
+            <summary>Is it fully launched?</summary>
+            <p>Not yet. Marginr is in development, and early access users help shape the workflow, accuracy, and integrations.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Marginr AI. Built for ambitious SMEs.</p>
+      <p>&copy; 2025 Marginr AI. Built for independent dental practices.</p>
     </div>
   </footer>
 
@@ -969,6 +1773,23 @@
     document.querySelectorAll('.timeline-item, .reveal-on-scroll, .scale-in-scroll').forEach(item => {
       observer.observe(item);
     });
+    function ml_webform_success_40749345() {
+      var $ = window.ml_jQuery || window.jQuery;
+      if ($) {
+        $('.ml-subscribe-form-40749345 .row-success').show();
+        $('.ml-subscribe-form-40749345 .row-form').hide();
+        return;
+      }
+
+      var formRow = document.querySelector('.ml-subscribe-form-40749345 .row-form');
+      var successRow = document.querySelector('.ml-subscribe-form-40749345 .row-success');
+      if (formRow) formRow.style.display = 'none';
+      if (successRow) successRow.style.display = 'block';
+    }
+  </script>
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b" type="text/javascript"></script>
+  <script>
+    fetch("https://assets.mailerlite.com/jsonp/2312801/forms/186452911636612681/takel");
   </script>
 </body>
 </html>
